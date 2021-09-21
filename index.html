@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Page title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="css/tailwind/tailwind.min.css">
+    <link rel="stylesheet" href="css/tailwind/forms.min.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-tailwind.png">
+    <script src="js/main.js"></script>
+
+
+<script type="text/javascript">
+	
+var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+
+</script>
+
+
+
+<script
+  src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js">
+</script>
+
+<style type="text/css">
+	
+.uploadcare--widget__button .uploadcare--widget__button_type_open{content: "Upload Award Letter Photo";}
+
+
+</style>
+
+  </head>
+  <body class="antialiased bg-body text-body font-body">
+    <div class=""> 
+    
+      <section class="relative">
+        <div class="hidden lg:block absolute inset-0 w-1/2 ml-auto bg-blueGray-50 z-0" style="z-index: -1"></div>
+        <div class="container px-4 mx-auto">
+          <nav class="flex items-center py-6">
+            <a class="text-3xl font-semibold leading-none" href="#">
+              <img class="h-10" src="metis-assets/logos/metis/metis.svg" alt="" width="auto">
+            </a>
+            <div class="lg:hidden ml-auto">
+              <button class="navbar-burger flex items-center py-2 px-3 text-blue-600 hover:text-blue-700 rounded border border-blue-200 hover:border-blue-300">
+                <svg class="fill-current h-4 w-4" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <title>Mobile menu</title>
+                  <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+              </button>
+            </div>
+            <ul class="hidden lg:flex lg:space-x-10 ml-10">
+              <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500" href="#">Product</a></li>
+              <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500" href="#">Company</a></li>
+              <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500" href="#">About Us</a></li>
+              <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500" href="#">Features</a></li>
+            </ul>
+            <div class="hidden lg:block ml-auto"><a class="mr-2 inline-block px-4 py-3 text-xs text-blue-600 hover:text-blue-700 font-semibold leading-none border border-blue-200 hover:border-blue-300 rounded" href="#">Log In</a><a class="inline-block px-4 py-3 text-xs font-semibold leading-none bg-blue-600 hover:bg-blue-700 text-white rounded" href="#">Sign Up</a></div>
+          </nav>
+          <div class="flex flex-wrap items-center -mx-3">
+            <div class="w-full lg:w-1/2 px-3">
+              <div class="py-12">
+                <div class="max-w-lg lg:max-w-md mx-auto lg:mx-0 mb-8 text-center lg:text-left">
+                  <h2 class="text-3xl md:text-4xl mb-4 font-bold font-heading">
+                    <span>Level Up</span>
+                    <span class="text-blue-600">Direct</span>
+                    <span>.</span>
+                  </h2>
+                  <p class="text-blueGray-400 leading-relaxed">Learn more about getting your <span class="text-blueGray-500">Eletronic Broadband Benefit</span> tablet from an athorized location near you.</p>
+                </div>
+                <div class="text-center lg:text-left"><a class="block sm:inline-block py-4 px-8 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded" href="#">Apply Now</a><a class="block sm:inline-block py-4 px-8 text-xs text-blueGray-500 hover:text-blueGray-600 text-center font-semibold leading-none bg-white border border-blueGray-200 hover:border-blueGray-300 rounded" href="#">Learn More</a></div>
+              </div>
+            </div>
+            <div class="w-full lg:w-1/2 px-3 lg:bg-blueGray-50 mb-12 lg:mb-0">
+              <div class="flex items-center justify-center">
+                <img class="lg:max-w-lg" src="metis-assets/illustrations/working-from-airport.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden navbar-menu relative z-50">
+          <div class="navbar-backdrop fixed inset-0 bg-blueGray-800 opacity-25"></div>
+          <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+            <div class="flex items-center mb-8">
+              <a class="mr-auto text-3xl font-semibold leading-none" href="#">
+                <img class="h-10" src="metis-assets/logos/metis/metis.svg" alt="" width="auto">
+              </a>
+              <button class="navbar-close">
+                <svg class="h-6 w-6 text-blueGray-400 cursor-pointer hover:text-blueGray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+            <div>
+              <ul>
+                <li class="mb-1"><a class="block p-4 text-sm text-blueGray-500 hover:bg-blue-50 hover:text-blue-600" href="#">Product</a></li>
+                <li class="mb-1"><a class="block p-4 text-sm text-blueGray-500 hover:bg-blue-50 hover:text-blue-600" href="#">Company</a></li>
+                <li class="mb-1"><a class="block p-4 text-sm text-blueGray-500 hover:bg-blue-50 hover:text-blue-600" href="#">About Us</a></li>
+                <li class="mb-1"><a class="block p-4 text-sm text-blueGray-500 hover:bg-blue-50 hover:text-blue-600" href="#">Features</a></li>
+              </ul>
+              <div class="mt-4 pt-6 border-t border-blueGray-100"><a class="block px-4 py-3 mb-3 text-xs text-center font-semibold leading-none bg-blue-600 hover:bg-blue-700 text-white rounded" href="#">Sign Up</a><a class="block px-4 py-3 mb-2 text-xs text-center text-blue-600 hover:text-blue-700 font-semibold leading-none border border-blue-200 hover:border-blue-300 rounded" href="#">Log In</a></div>
+            </div>
+            <div class="mt-auto">
+              <p class="my-4 text-xs text-blueGray-400">
+                <span>Get in Touch</span>
+                <a class="text-blue-600 hover:text-blue-600 underline" href="#">info@example.com</a>
+              </p>
+              <a class="inline-block px-1" href="#">
+                <img src="metis-assets/icons/facebook-blue.svg" alt="">
+              </a>
+              <a class="inline-block px-1" href="#">
+                <img src="metis-assets/icons/twitter-blue.svg" alt="">
+              </a>
+              <a class="inline-block px-1" href="#">
+                <img src="metis-assets/icons/instagram-blue.svg" alt="">
+              </a>
+            </div>
+          </nav>
+        </div>
+      </section>
+    
+      <section class="pt-20 pb-8">
+        <div class="container px-4 mx-auto">
+          <div class="flex flex-wrap -mx-3">
+            <div class="w-full md:w-1/2 lg:w-1/4 mb-12 px-3">
+              <div class="text-center">
+                <span class="inline-block p-5 mb-6 bg-blue-600 text-white rounded-full">
+                	<!--
+                  <svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg> 
+                  -->
+                  <img class="w-12 h-12" src="./img/icons8-multiple-choice-100.png">
+                </span>
+                <h4 class="mb-3 text-lg font-semibold font-heading">Easy Application Proccess</h4>
+                <p class="text-blueGray-400 leading-loose">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/4 mb-12 px-3">
+              <div class="text-center">
+                <span class="inline-block p-5 mb-6 bg-blue-600 text-white rounded-full">
+                	<!--
+                  <svg class="h-12 w-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"></path>
+                  </svg>
+                  -->
+                  <img class="w-12 h-12" src="./img/icons8-in-transit-100.png">
+                </span>
+                <h4 class="mb-3 text-lg font-semibold font-heading">Fast Shipping Speed</h4>
+                <p class="text-blueGray-400 leading-loose">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/4 mb-12 px-3">
+              <div class="text-center">
+                <span class="inline-block p-5 mb-6 bg-blue-600 text-white rounded-full">
+                	<!--
+                  <svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                  </svg>
+-->
+                   <img class="w-12 h-12" src="./img/icons8-supplier-100.png">
+                </span>
+                <h4 class="mb-3 text-lg font-semibold font-heading">Authorized Provider of EBB</h4>
+                <p class="text-blueGray-400 leading-loose">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/4 mb-12 px-3">
+              <div class="text-center">
+                <span class="inline-block p-5 mb-6 bg-blue-600 text-white rounded-full">
+                <!-- 
+                  <svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
+                  </svg>
+                  -->
+                  <img class="w-12 h-12" src="./img/icons8-android-os-100.png">
+                </span>
+                <h4 class="mb-3 text-lg font-semibold font-heading">Android Powered</h4>
+                <p class="text-blueGray-400 leading-loose">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <section class="py-20">
+        <div class="container px-4 mx-auto">
+          <div class="flex flex-wrap -mx-8">
+            <div class="w-full lg:w-1/2 px-8">
+              <div class="mb-12 lg:mb-0 pb-12 lg:pb-0 border-b lg:border-b-0">
+                <h2 class="mb-4 text-3xl lg:text-4xl font-bold font-heading">Requirements</h2>
+                <p class="mb-8 leading-loose text-blueGray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla. Praesent placerat enim ut ex tincidunt vehicula. Fusce sit amet dui tellus.</p>
+                <a class="inline-block text-xs py-4 px-8 text-white font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded" href="#">Apply Now</a>
+              </div>
+            </div>
+            <div class="w-full lg:w-1/2 px-8">
+              <ul class="space-y-12">
+                <li class="flex -mx-4">
+                  <div class="px-4">
+                    <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50 text-blue-600">1</span>
+                  </div>
+                  <div class="px-4">
+                    <h3 class="my-4 text-xl font-semibold">Qualifications</h3>
+                    <p class="text-blueGray-400 leading-loose">US citizens who have xxx xxx xxx xxx or xx qualify contact for more details.</p>
+                  </div>
+                </li>
+                <li class="flex -mx-4">
+                  <div class="px-4">
+                    <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50 text-blue-600">2</span>
+                  </div>
+                  <div class="px-4">
+                    <h3 class="my-4 text-xl font-semibold">Award Letter</h3>
+                    <p class="text-blueGray-400 leading-loose">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus eget justo et iaculis.</p>
+                  </div>
+                </li>
+                <li class="flex -mx-4">
+                  <div class="px-4">
+                    <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50 text-blue-600">3</span>
+                  </div>
+                  <div class="px-4">
+                    <h3 class="my-4 text-xl font-semibold">Submit Application</h3>
+                    <p class="text-blueGray-400 leading-loose">Submit the application below and we will contact you within 48 hours to update you on the status of your tablet.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <section class="py-16">
+        <div class="container px-4 mx-auto">
+          <div class="max-w-lg mx-auto text-center">
+            <span class="inline-block py-1 px-3 text-xs md:text-sm rounded-xl bg-blue-50 text-blue-600 font-semibold">Applications</span>
+            <h2 class="my-3 text-3xl md:text-4xl font-bold font-heading">Apply For Your Tablet Today!</h2>
+            <p class="text-blueGray-400 leading-relaxed">Average application time takes 5-10 minuets and takes on average of 1 business day to be shipped out to you.</p>
+            <div class="mt-8"><a class="block sm:inline-block py-4 px-8 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded" href="#">Apply Now</a><a class="block sm:inline-block py-4 px-8 text-xs text-blueGray-500 hover:text-blueGray-600 text-center font-semibold leading-none bg-white border border-blueGray-200 hover:border-blueGray-300 rounded" href="#">Learn more</a></div>
+          </div>
+        </div>
+      </section>
+    
+      <section class="py-20 xl:bg-contain bg-top bg-no-repeat" style="background-image: url('metis-assets/backgrounds/intersect.svg');">
+        <div class="container px-4 mx-auto">
+          <div class="max-w-lg mx-auto mb-12 text-center">
+            <img class="mx-auto" src="metis-assets/icons/quote.svg" alt="">
+            <h2 class="my-2 text-3xl md:text-4xl font-bold font-heading">Testamonials</h2>
+            <p class="text-blueGray-400 leading-loose">What our clients say about us.</p>
+          </div>
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
+              <div class="p-8 bg-white shadow rounded">
+                <div class="flex items-center mb-4">
+                  <img class="h-16 w-16 rounded-full object-cover" src="https://images.unsplash.com/photo-1556474835-b0f3ac40d4d1?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="">
+                  <div class="pl-4">
+                    <p class="text-xl">John Bailey</p>
+                    <p class="text-blue-600">Houston, TX</p>
+                  </div>
+                </div>
+                <p class="text-blueGray-400 leading-loose">In et sagittis risus, sed molestie sapien. Suspendisse potenti. Sed pharetra, leo quis dignissim tristique, arcu arcu varius libero, ut vestibulum sapien odio facilisis nunc.</p>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
+              <div class="p-8 bg-white shadow rounded">
+                <div class="flex items-center mb-4">
+                  <img class="h-16 w-16 rounded-full object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="">
+                  <div class="pl-4">
+                    <p class="text-xl">Julie Brown</p>
+                    <p class="text-blue-600">Pearland, TX</p>
+                  </div>
+                </div>
+                <p class="text-blueGray-400 leading-loose">In et sagittis risus, sed molestie sapien. Suspendisse potenti. Sed pharetra, leo quis dignissim tristique, arcu arcu varius libero, ut vestibulum sapien odio facilisis nunc.</p>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
+              <div class="p-8 bg-white shadow rounded">
+                <div class="flex items-center mb-4">
+                  <img class="h-16 w-16 rounded-full object-cover" src="https://images.unsplash.com/photo-1584308972272-9e4e7685e80f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="">
+                  <div class="pl-4">
+                    <p class="text-xl">Julie Jones</p>
+                    <p class="text-blue-600">Friendswood, TX</p>
+                  </div>
+                </div>
+                <p class="text-blueGray-400 leading-loose">In et sagittis risus, sed molestie sapien. Suspendisse potenti. Sed pharetra, leo quis dignissim tristique, arcu arcu varius libero, ut vestibulum sapien odio facilisis nunc.</p>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
+              <div class="p-8 bg-white shadow rounded">
+                <div class="flex items-center mb-4">
+                  <img class="h-16 w-16 rounded-full object-cover" src="https://images.unsplash.com/photo-1584308972272-9e4e7685e80f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="">
+                  <div class="pl-4">
+                    <p class="text-xl">Julie Brown</p>
+                    <p class="text-blue-600">Webster, TX</p>
+                  </div>
+                </div>
+                <p class="text-blueGray-400 leading-loose">In et sagittis risus, sed molestie sapien. Suspendisse potenti. Sed pharetra, leo quis dignissim tristique, arcu arcu varius libero, ut vestibulum sapien odio facilisis nunc.</p>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
+              <div class="p-8 bg-white shadow rounded">
+                <div class="flex items-center mb-4">
+                  <img class="h-16 w-16 rounded-full object-cover" src="https://images.unsplash.com/photo-1556474835-b0f3ac40d4d1?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="">
+                  <div class="pl-4">
+                    <p class="text-xl">Tom Brown</p>
+                    <p class="text-blue-600">League City, TX</p>
+                  </div>
+                </div>
+                <p class="text-blueGray-400 leading-loose">In et sagittis risus, sed molestie sapien. Suspendisse potenti. Sed pharetra, leo quis dignissim tristique, arcu arcu varius libero, ut vestibulum sapien odio facilisis nunc.</p>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
+              <div class="p-8 bg-white shadow rounded">
+                <div class="flex items-center mb-4">
+                  <img class="h-16 w-16 rounded-full object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="">
+                  <div class="pl-4">
+                    <p class="text-xl">Julie Bailey</p>
+                    <p class="text-blue-600">Edgebrook, TX</p>
+                  </div>
+                </div>
+                <p class="text-blueGray-400 leading-loose">In et sagittis risus, sed molestie sapien. Suspendisse potenti. Sed pharetra, leo quis dignissim tristique, arcu arcu varius libero, ut vestibulum sapien odio facilisis nunc.</p>
+              </div>
+            </div>
+          </div>
+          <div class="text-center"><a class="inline-block py-4 px-8 text-xs text-white font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded" href="#">Show more Testimonials</a></div>
+        </div>
+      </section>
+    
+      <section class="py-20">
+        <div class="container px-4 mx-auto">
+          <div class="max-w-2xl lg:max-w-3xl mx-auto">
+            <div class="mb-12 text-center">
+              <h2 class="text-4xl font-bold font-heading">Apply Today!</h2>
+              <p class="text-blueGray-400">We will get in touch within 48 hours!</p>
+            </div>
+            <div class="flex flex-wrap -mx-3 text-center">
+              <div class="w-1/2 lg:w-1/3 px-3 mb-12">
+                <svg class="mb-6 h-8 w-8 mx-auto text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+                <div class="leading-relaxed">
+                  <span class="text-sm text-blueGray-400">Phone</span>
+                  <p>+1 (123) 456-7890</p>
+                  <p>+1 (123) 456-7890</p>
+                </div>
+              </div>
+              <div class="w-1/2 lg:w-1/3 px-3 mb-12">
+                <svg class="mb-6 h-8 w-8 mx-auto text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                <div class="leading-relaxed">
+                  <span class="text-sm text-blueGray-400">E-mail</span>
+                  <p><a href="mailto:D.Goding@LevelUpDirect.Org?Subject=EBB-Tablet">D.Goding@LevelUpDirect.Org</a></p>
+                  <p><a href="mailto:S.Redington@LevelUpDirect.Org?Subject=EBB-Tablet">S.Redington@LevelUpDirect.Org</a></p>
+                </div>
+              </div>
+              <div class="w-full lg:w-1/3 px-3 mb-12">
+                <svg class="mb-6 h-8 w-8 mx-auto text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <div class="leading-relaxed">
+                  <span class="text-sm text-blueGray-400">Address</span>
+                  <p>11567 E Tabaxi Dr</p>
+                  <p>Houston (TX), 77075</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <form action="https://submit-form.com/H48OlIU9">
+                <div class="mb-4 text-sm">
+                  <span class="mr-4 font-semibold">Departament:</span>
+                  <label class="mr-4">
+                    <input class="mr-1" type="radio" name="department" value="1" checked="">
+                    <span>Support</span>
+                  </label>
+                  <label>
+                    <input class="mr-1" type="radio" name="department" value="2">
+                    <span>Sales</span>
+                  </label>
+                </div>
+                <div class="flex flex-wrap mb-4 -mx-3">
+                  <div class="w-full lg:w-1/2 px-3 mb-4 lg:mb-0">
+					<div class="mb-4">
+                    	<label for="name" hidden>Name</label>
+                      <input for="name" class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-50 rounded outline-none" type="text" id="name" name="name" placeholder="Name">
+                    </div>
+                    <div class="mb-4">
+                    	<label for="name" hidden>Phone</label>
+                      <input class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-50 rounded outline-none" type="tel" placeholder="Mobile Phone" name="Phone">
+                    </div>
+
+                    <div class="mb-4">
+                    	<label for="email" hidden>Email</label>
+                      <input class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-50 rounded outline-none" type="email"  id="email" name="email" placeholder="Email" required="" >
+                    </div>
+                    <div>Upload Award Letter Photo
+                      <label class="flex px-2 bg-blueGray-50 rounded" for="photo"></label>
+                        <input photo class="hidden" type="file" placeholder="Choose file.." name="Choose file" id="photo" name="photo" role="uploadcare-uploader" data-public-key="96cf308aceeb10ef8ff3">
+
+
+
+
+
+
+
+                      
+                    </div>
+                  </div>
+                  <div class="w-full lg:w-1/2 px-3">
+
+
+   <input id="autocomplete" class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-50 rounded outline-none" placeholder="Enter your address"
+      onFocus="geolocate()" type="text" class="form-control">
+      <br>
+
+                  	<textarea class="w-full  p-4 text-xs font-semibold leading-none resize-none bg-blueGray-50 rounded outline-none" type="text" placeholder="Message..."></textarea>
+
+                    <div class="mb-4">
+                    	<label for="Address" hidden>Address</label>
+                      <input class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-50 rounded outline-none" type="text"  id="street_number" name="Address" placeholder="Address" required="" >
+                    </div>
+
+<div class="mb-4">
+                    	<label for="Street Name" hidden>Street Name</label>
+                      <input class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-50 rounded outline-none" type="text"  id="route" name="Street Name" placeholder="Street Name" required="" >
+                    </div>
+                    <div class="mb-4">
+                    	<label for="ZipCode" hidden>ZipCode</label>
+                      <input class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-50 rounded outline-none" type="text"  id="postal_code" name="ZipCode" placeholder="ZipCode" required="" >
+                    </div>
+
+                    <div class="mb-4">
+                    	<label for="City" hidden>City</label>
+                      <input class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-50 rounded outline-none" type="text"  id="City" name="City" placeholder="City" required="" >
+                    </div>
+
+                    <div class="mb-4">
+                    	<label for="State" hidden>State</label>
+                      <input class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-50 rounded outline-none" type="text"  id="administrative_area_level_1" name="State" placeholder="State" required="" >
+                    </div>                    
+                
+                <label for="AssistanceType" hidden>Assistance Type</label>
+                <select class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                  <option>Assistance Type</option>
+                  <option>Food Stamps</option>
+                  <option>Medicaid</option>
+                  <option>Other</option>
+                </select>
+
+
+                  </div>
+                </div>
+                <div class="flex justify-between items-center">
+                  <label>
+                    <input class="mr-1" type="checkbox" name="terms" value="1">
+                    <span class="text-sm font-semibold">I agree to terms and conditions.</span>
+                  </label>
+                  <button class="py-4 px-8 text-sm text-white font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded" type="submit">Submit</button>
+                </div>
+            </div>
+          </div>
+        </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-7bEHtnVexH6adxK-eLPHJ-oQdwxDq74&libraries=places&callback=initAutocomplete" async defer></script>  
+      </section>
+    </div>
+  </body>
+</html>
+
