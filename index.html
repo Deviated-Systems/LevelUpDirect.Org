@@ -42,7 +42,7 @@ var placeSearch, autocomplete;
         var place = autocomplete.getPlace();
 
         for (var component in componentForm) {
-          document.getElementById(component).value = '';
+          //document.getElementById(component).value = '';
           //document.getElementById(component).disabled = false;
         }
 
@@ -425,17 +425,6 @@ var placeSearch, autocomplete;
             </div>
             <div>
               <form action="https://submit-form.com/H48OlIU9">
-                <div class="mb-4 text-sm">
-                  <span class="mr-4 font-semibold">Departament:</span>
-                  <label class="mr-4">
-                    <input class="mr-1" type="radio" name="department" value="1" checked="">
-                    <span>Support</span>
-                  </label>
-                  <label>
-                    <input class="mr-1" type="radio" name="department" value="2">
-                    <span>Sales</span>
-                  </label>
-                </div>
                 <div class="flex flex-wrap mb-4 -mx-3">
                   <div class="w-full lg:w-1/2 px-3 mb-4 lg:mb-0">
 					<div class="mb-4">
@@ -454,14 +443,6 @@ var placeSearch, autocomplete;
                     <div>Upload Award Letter Photo
                       <label class="flex px-2 bg-blueGray-50 rounded" for="photo"></label>
                         <input photo class="hidden" type="file" placeholder="Choose file.." name="Choose file" id="photo" name="photo" role="uploadcare-uploader" data-public-key="96cf308aceeb10ef8ff3">
-
-
-
-
-
-
-
-                      
                     </div>
                   </div>
                   <div class="w-full lg:w-1/2 px-3">
@@ -498,14 +479,15 @@ var placeSearch, autocomplete;
                       <input class="w-full p-4 text-xs font-semibold leading-none bg-blueGray-50 rounded outline-none" type="text"  id="administrative_area_level_1" name="State" placeholder="State" disabled="true"  required=""  >
                     </div>                    
                 
+
+                    <div class="mb-4">
                 <label for="AssistanceType" hidden>Assistance Type</label>
                 <select class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
                   <option>Assistance Type</option>
                   <option>Food Stamps</option>
                   <option>Medicaid</option>
                   <option>Other</option>
-                </select>
-
+                </select></div> 
 
                   </div>
                 </div>
